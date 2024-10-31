@@ -1,0 +1,11 @@
+Citation Author(s):
+Miguel ÁngelMoreno-SoteloInstituto Politécnico NacionalMarco A.Moreno-Armendáriz Instituto Politécnico NacionalCarlosDuchanoy Instituto Politécnico NacionalHiramCalvo Instituto Politécnico Nacional
+Submitted by:Hiram CalvoLast updated:Thu, 01/02/2020 - 17:47DOI:10.21227/3ngs-df12
+
+
+
+ABSTRACT 
+Since there is no image-based personality dataset, we used the ChaLearn dataset for creating a new dataset that met the characteristics we required for this work, i.e., selfie images where only one person appears and his face is visible, labeled with the person's apparent personality in the photo. The ChaLearn dataset was distributed as follows: 6,000 data were destined for training, 2,000 for validation and 2,000 were separated for the test phase or final evaluation of the contest, therefore the personality tags of the test data set were not published, so we had 8,000 tagged videos available. For each of them, we took 3 or 4 frames, resulting in a total of 30,935 images. These images constitute the dataset of personality in portraits, first version (PortraitPersonality v1). For the purpose of this work we cut out each image extracted from the videos so that they looked like a selfie. Using OpenCV in Python we performed face detection in each image and then we cut the image making sure to contain the full face. This constitutes the second version of the dataset (PortraitPersonality v2). Each image is matched with its corresponding values (between 0 and 1) for each personality factor (Extraversion, Agreeableness, Conscientiousness, Neuroticism, and Openness to Experience). Here you can find the CSV file of such correspondences, and a github link to the captured frames (see link at the top).
+
+Instructions: 
+Portrait Personality dataset of selfies based on the ChaLearn dataset First Impressions. This dataset consists of 30,935 selfies labeled with apparent personality. Each selfie file was named with the prefix of the original video followed by the frame's number. "bigfive_labels.csv" contains the labels for each trait of the Big Five model, using the prefix (name of the original video). Video frames and models are available at https://github.com/miguelmore/personality.
