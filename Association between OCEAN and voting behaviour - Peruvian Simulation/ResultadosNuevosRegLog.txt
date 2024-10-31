@@ -1,0 +1,219 @@
+######################################################
+### Personalidad de candidatos e intencion de voto ###
+######################################################
+
+EXTRANJEROS
+
+> logitExt1 <- glm(TargetExt ~ Opredext + Cpredext + Epredext + Apredext + Npredext, data = BD, family = "binomial")
+> summary(logitExt1)
+
+Call:
+glm(formula = TargetExt ~ Opredext + Cpredext + Epredext + Apredext + 
+    Npredext, family = "binomial", data = BD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.5815  -0.8413  -0.4023   1.0621   1.8564  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  21.1047     3.4363   6.142 8.17e-10 ***
+Opredext    -39.9425     7.7088  -5.181 2.20e-07 ***
+Cpredext      0.3298     8.1358   0.041   0.9677    
+Epredext     52.0132     6.7943   7.655 1.93e-14 ***
+Apredext     13.0220     7.3185   1.779   0.0752 .  
+Npredext    -60.2382    12.0266  -5.009 5.48e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 951.96  on 724  degrees of freedom
+Residual deviance: 759.17  on 719  degrees of freedom
+AIC: 771.17
+
+Number of Fisher Scoring iterations: 5
+
+#######################################################################
+#######################################################################
+
+LOCALES
+
+> logitLocal1 <- glm(TargetLocal ~ Opredlocal + Cpredlocal2 + Epredlocal + Apredlocal + Npredlocal, data = BD, family = "binomial")
+> summary(logitLocal1)
+
+Call:
+glm(formula = TargetLocal ~ Opredlocal + Cpredlocal2 + Epredlocal + 
+    Apredlocal + Npredlocal, family = "binomial", data = BD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.8070  -0.9984  -0.6868   1.0874   2.3622  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  22.1814     3.4705   6.391 1.64e-10 ***
+Opredlocal  -26.4004     8.1074  -3.256 0.001129 ** 
+Cpredlocal2  -0.8877     3.8003  -0.234 0.815298    
+Epredlocal   11.1943     9.1423   1.224 0.220781    
+Apredlocal  -55.2948    10.2899  -5.374 7.71e-08 ***
+Npredlocal   34.9390     9.4661   3.691 0.000223 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 989.21  on 724  degrees of freedom
+Residual deviance: 883.46  on 719  degrees of freedom
+AIC: 895.46
+
+Number of Fisher Scoring iterations: 4
+
+#################################################################
+### Personalidad de candidatos y votantes e intencion de voto ###
+#################################################################
+
+EXTRANJEROS
+
+> logitExtA <- glm(TargetExt ~ ONorm + CNorm + ENorm + ANorm + NNorm, data = BDConPersonalidadVotantesNorm, family = "binomial")
+> summary(logitExtA)
+
+Call:
+glm(formula = TargetExt ~ ONorm + CNorm + ENorm + ANorm + NNorm, 
+    family = "binomial", data = BDConPersonalidadVotantesNorm)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.1751  -0.9706  -0.9112   1.3866   1.6333  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)
+(Intercept) -0.88746    0.62091  -1.429    0.153
+ONorm       -0.70280    0.54356  -1.293    0.196
+CNorm       -0.07385    0.58512  -0.126    0.900
+ENorm        0.27156    0.49559   0.548    0.584
+ANorm        0.75138    0.66921   1.123    0.262
+NNorm        0.52532    0.65283   0.805    0.421
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 951.96  on 724  degrees of freedom
+Residual deviance: 948.93  on 719  degrees of freedom
+AIC: 960.93
+
+Number of Fisher Scoring iterations: 4
+
+#########################################################
+#########################################################
+
+> logitExtB <- glm(TargetExt ~ ONorm + CNorm + ENorm + ANorm + NNorm +
++                    Opredext + Cpredext + Epredext + Apredext + Npredext, data = BD, family = "binomial")
+> summary(logitExtB)
+
+Call:
+glm(formula = TargetExt ~ ONorm + CNorm + ENorm + ANorm + NNorm + 
+    Opredext + Cpredext + Epredext + Apredext + Npredext, family = "binomial", 
+    data = BD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.6848  -0.8459  -0.4080   1.0684   2.1074  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  20.80203    3.52602   5.900 3.64e-09 ***
+ONorm        -0.55639    0.61360  -0.907   0.3645    
+CNorm        -0.27570    0.67730  -0.407   0.6840    
+ENorm         0.03322    0.56192   0.059   0.9529    
+ANorm         1.23214    0.78399   1.572   0.1160    
+NNorm         0.14634    0.75282   0.194   0.8459    
+Opredext    -39.96952    7.73159  -5.170 2.35e-07 ***
+Cpredext      0.52990    8.17436   0.065   0.9483    
+Epredext     52.37646    6.83025   7.668 1.74e-14 ***
+Apredext     13.41389    7.34400   1.827   0.0678 .  
+Npredext    -61.16728   12.10099  -5.055 4.31e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 951.96  on 724  degrees of freedom
+Residual deviance: 756.36  on 714  degrees of freedom
+AIC: 778.36
+
+Number of Fisher Scoring iterations: 5
+
+#######################################################################
+#######################################################################
+
+LOCALES
+
+> logitLocalA <- glm(TargetLocal ~ ONorm + CNorm + ENorm + ANorm + NNorm, data = BD, family = "binomial")
+> summary(logitLocalA)
+
+Call:
+glm(formula = TargetLocal ~ ONorm + CNorm + ENorm + ANorm + NNorm, 
+    family = "binomial", data = BD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.2663  -1.0642  -0.9627   1.2748   1.5635  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)  -0.2396     0.6078  -0.394   0.6934  
+ONorm        -0.2644     0.5283  -0.500   0.6168  
+CNorm        -0.1956     0.5743  -0.341   0.7334  
+ENorm        -0.4544     0.4852  -0.937   0.3490  
+ANorm         1.1303     0.6538   1.729   0.0839 .
+NNorm        -0.5779     0.6419  -0.900   0.3680  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 989.21  on 724  degrees of freedom
+Residual deviance: 984.14  on 719  degrees of freedom
+AIC: 996.14
+
+Number of Fisher Scoring iterations: 4
+
+#########################################################
+#########################################################
+
+> logitLocalB <- glm(TargetLocal ~ ONorm + CNorm + ENorm + ANorm + NNorm +
++                    Opredlocal + Cpredlocal2 + Epredlocal + Apredlocal + Npredlocal, data = BD, family = "binomial")
+> summary(logitLocalB)
+
+Call:
+glm(formula = TargetLocal ~ ONorm + CNorm + ENorm + ANorm + NNorm + 
+    Opredlocal + Cpredlocal2 + Epredlocal + Apredlocal + Npredlocal, 
+    family = "binomial", data = BD)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.0263  -0.9726  -0.6431   1.0404   2.4829  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  21.78292    3.53897   6.155 7.50e-10 ***
+ONorm        -0.08038    0.57042  -0.141 0.887937    
+CNorm        -0.37388    0.63539  -0.588 0.556245    
+ENorm        -0.48278    0.52076  -0.927 0.353890    
+ANorm         1.20292    0.70409   1.708 0.087545 .  
+NNorm        -0.50234    0.69506  -0.723 0.469846    
+Opredlocal  -25.07514    8.14645  -3.078 0.002084 ** 
+Cpredlocal2  -0.82406    3.82758  -0.215 0.829536    
+Epredlocal   10.13270    9.18059   1.104 0.269719    
+Apredlocal  -54.63018   10.28769  -5.310 1.09e-07 ***
+Npredlocal   34.49447    9.50366   3.630 0.000284 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 989.21  on 724  degrees of freedom
+Residual deviance: 879.24  on 714  degrees of freedom
+AIC: 901.24
+
+Number of Fisher Scoring iterations: 4
